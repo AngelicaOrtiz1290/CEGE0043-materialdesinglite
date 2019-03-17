@@ -35,3 +35,15 @@ earthquakelayer=L.geoJson(earthquakejson,{
 	//use point to ayer to create the point
 	pointToLayer:function(feature,latlng)
 {
+	//look at the GeoJson file-specifically at the properties-to see the earthquake magnitude and use a different marker depending on its value
+// also incluide a op-up that showa the place value of the earthquakes
+if(feature.properties.mag>1.75){
+	return L.marker(latlng,{icon:testMarkerRed}).bindPopup("<b>"+feature.properties.place+"</b>");
+}else{
+	//magnitude is 1.75 or less
+	return L.marker(latlng,{icon:testMarkerPink}).bindPopup("<b>"+feature.properties.place+"</b>");;
+}
+},
+}).addTo(mymap);
+mymap.fitBounds(earthquakelayer.getBounds());
+}
