@@ -55,6 +55,12 @@
   integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="   
   crossorigin=""></script>
 
+<!----------------ADD A FUNCTION NAMED addPointLinePoly TO THE MAP----- AOA--->
+//add a polygon with 3 end points(i.e. a triangle)
+<script> 
+ var myPolygon = L.polygon([[51.509,-0.08],[51.503,-0.06],[51.51,-0.047]],{color:'red',fillColor:'#f03',fillOpacity:0.5}).addTo(mymap).bindPopup("I am a polygon.");
+</script>
+
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
     <link rel="canonical" href="http://www.example.com/">
@@ -148,7 +154,8 @@
     </div>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script scr = "js/rhMenu.js"></script>
-    <!---------------------------------------AOA-------- link script to leaflet file---->
+   <!---------------------------------------AOA-------- link script to leaflet file---->
     <script src="js/leaflet.js"></script>
+    <script src="js/leafletFunctions.js"></script>
   </body>
 </html>
