@@ -17,3 +17,21 @@ function addPointLinePoly(){
 		client.onreadystatechange = earthquakeResponse;
 		client.send();
  }
+ // Wait for the response from data server, and proces once received
+	function earthquakeResponse(){
+		if(client.readyState==4){
+			var earthquakedata=client.responseText;
+			loadEarthquakelayer(earthquakedata);
+		}
+	}
+/// Define a global variable to hold the layer so that we can use it later on
+var earthquakelayer;
+// convert the received data - txt-to JSON and add it to the map
+	function loadEarthquakelayer(earthquakedata){
+// convert the text to JSON
+	var earthquakejson = JSON.parse(earthquakedata);
+// load the geoJSON layer
+earthquakelayer=L.geoJson(earthquakejson,{
+	//use point to ayer to create the point
+	pointToLayer:function(feature,latlng)
+{
